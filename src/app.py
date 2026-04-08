@@ -38,12 +38,14 @@ def handle_hello():
 
 @app.route('/members', methods=['POST'])
 def add_member():
-    members = jackson_family.add_member({
-        "first_name": "Juan",
-        "age": 23,
-        "lucky_numbers": [1,2,3]
-    })
+    member_info = request.get_json()
+    members = jackson_family.add_member(member_info)
     return jsonify(members), 200
+
+@app.route('/members/<int:id>', methods=['GET'])
+def get_member(id):
+    member = jackson_family.get_member(id)
+    return jsonify(member), 200
 
 
 # This only runs if `$ python src/app.py` is executed
