@@ -45,6 +45,8 @@ def add_member():
 @app.route('/members/<int:id>', methods=['GET'])
 def get_member(id):
     member = jackson_family.get_member(id)
+    if member is None:
+        return jsonify(response="No member found"), 404
     return jsonify(member), 200
 
 
