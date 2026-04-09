@@ -39,8 +39,8 @@ def handle_hello():
 @app.route('/members', methods=['POST'])
 def add_member():
     member_info = request.get_json()
-    new_member = jackson_family.add_member(member_info)
-    return jsonify(new_member), 200
+    member_added = jackson_family.add_member(member_info)
+    return jsonify(member_added), 200
 
 @app.route('/members/<int:id>', methods=['GET'])
 def get_member(id):
