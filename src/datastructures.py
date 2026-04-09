@@ -47,7 +47,8 @@ class FamilyStructure:
         print(isinstance(member["id"], int))
         member["last_name"] = self.last_name
         self._members.append(member)
-        return self._members[0]
+        print(self._members)
+        return member
 
     def delete_member(self, id):
         ## You have to implement this method
