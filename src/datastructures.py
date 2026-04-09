@@ -44,10 +44,8 @@ class FamilyStructure:
         ## Append the member to the list of _members
         # pass
         member["id"] = self._generate_id()
-        print(isinstance(member["id"], int))
         member["last_name"] = self.last_name
         self._members.append(member)
-        print(self._members)
         return member
 
     def delete_member(self, id):
