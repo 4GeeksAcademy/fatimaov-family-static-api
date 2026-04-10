@@ -51,8 +51,8 @@ def get_member(id):
 
 @app.route('/members/<int:id>', methods=['DELETE'])
 def delete_member(id):
-    member = jackson_family.delete_member(id)
-    if member is None:
+    delete_response = jackson_family.delete_member(id)
+    if delete_response is None:
         return jsonify(response="No member found"), 404
     return jsonify(done=True), 200
 
