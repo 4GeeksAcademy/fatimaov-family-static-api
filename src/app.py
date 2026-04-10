@@ -49,6 +49,13 @@ def get_member(id):
         return jsonify(response="No member found"), 404
     return jsonify(member), 200
 
+@app.route('/members/<int:id>', methods=['DELETE'])
+def delete_member(id):
+    member = jackson_family.delete_member(id)
+    if member is None:
+        return jsonify(response="No member found"), 404
+    return jsonify(done=True), 200
+
 
 # This only runs if `$ python src/app.py` is executed
 if __name__ == '__main__':
